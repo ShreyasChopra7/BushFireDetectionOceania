@@ -85,5 +85,14 @@ This script utilizes two scripts, 'main.py' for implementation of UNET architect
 
 
 
-Additional Applications
+### Additional Applications (Refer utils/)
 
+Counting fire pixels
+
+Our U-net model converts the active fire pixels to RGB (255,255,255) and the rest to RGB (0,0,0).
+The script ‘countpixels.py’ is utilized to count the number of fire pixels present in the resultant segmented mask.
+
+Transforming Masks
+
+The segmented masks fetched comprises of two values, value 1 is for fire occurrence and its 0 when there is no fire. As a result, the masks produce won’t be displaying "white" and "black" colours on simply opening in an image view form. So, we are handling this using the script ‘plot.py’. This script results in conversion of the image into a PNG format displaying respective white and black pixels.
+Though this functionality has been already handled in our ‘predict.py’ script. Still I have prepared a separate script for convenience of visualisation.
