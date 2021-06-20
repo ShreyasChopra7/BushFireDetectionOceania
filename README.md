@@ -35,7 +35,7 @@ Then I successfully incorporated four months of data in total ranging from Dec�
 The proposed dataset has range of four months and only concerns Oceania.  Raw data comprised of around 30 Landsat-8 scenes of 7600 * 7600 pixels. Post that I have processed this consolidated dataset. 
 
 
-Downloading and Processing Raw Data
+Downloading and Processing Raw Data (Refer downlaod.py)
 
 I have made use of a csv file and a python script ‘download.py’ to download and process data in the desirable form [9].  
 The csv file comprises of the following parameters:
@@ -46,7 +46,7 @@ For this particular task, I have incorporated a script similar to the which is p
 The raw data covered all the continents data, so I also had to narrow it down to Oceania region.  I used ‘Rasterio.wrap.transform_geom function’ and python code to do this task [16]. 
 
 
-### Automatic Segmented Masks Generation
+### Automatic Segmented Masks Generation (Refer mask.py)
 
 I have made use of three popular fire detection algorithms and consolidated the results by forming combinations of them.
 I have written my own scripts to carry out this process. Though the inspired research also utilizes these three fire algorithms for performing image segmented masks.
@@ -76,7 +76,7 @@ Model Training (Refer train.py)
 • All the necessary scripts will be well documented as a part of thesis.
 
 
-Model Prediction
+Model Prediction (Refer predict.py)
 
 The ‘predict.py’ script consists of a function named detect in which we are inputting the image along with the model weights through the U-Net architecture so that it can calculate the confidences of each pixel across the image. If confidence > 0.5, then the respective pixel is Fire pixel. I have set this threshold by defining ‘out_threshold = 0.5’, as one of the arguments of this function. There is also a function 'out_files' for automating generation of output file names. Further, there is a function for plotting the resultant segmented mask image and a function for converting the pixels with confidence > 0.5 to RGB(255,255,255). 
 
@@ -90,9 +90,9 @@ This script utilizes two scripts, 'main.py' for implementation of UNET architect
 Counting fire pixels
 
 Our U-net model converts the active fire pixels to RGB (255,255,255) and the rest to RGB (0,0,0).
-The script ‘countpixels.py’ is utilized to count the number of fire pixels present in the resultant segmented mask.
+The script ‘pixel_count.py’ is utilized to count the number of fire pixels present in the resultant segmented mask.
 
 Transforming Masks
 
-The segmented masks fetched comprises of two values, value 1 is for fire occurrence and its 0 when there is no fire. As a result, the masks produce won’t be displaying "white" and "black" colours on simply opening in an image view form. So, we are handling this using the script ‘plot.py’. This script results in conversion of the image into a PNG format displaying respective white and black pixels.
+The segmented masks fetched comprises of two values, value 1 is for fire occurrence and its 0 when there is no fire. As a result, the masks produce won’t be displaying "white" and "black" colours on simply opening in an image view form. So, we are handling this using the script ‘plot_image.py’. This script results in conversion of the image into a PNG format displaying respective white and black pixels.
 Though this functionality has been already handled in our ‘predict.py’ script. Still I have prepared a separate script for convenience of visualisation.
