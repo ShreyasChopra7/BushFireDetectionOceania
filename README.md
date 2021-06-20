@@ -46,11 +46,42 @@ For this particular task, I have incorporated a script similar to the which is p
 The raw data covered all the continents data, so I also had to narrow it down to Oceania region.  I used ‘Rasterio.wrap.transform_geom function’ and python code to do this task [16]. 
 
 
-Creating Masks
+### Automatic Segmented Masks Generation
+
+I have made use of three popular fire detection algorithms and consolidated the results by forming combinations of them.
+I have written my own scripts to carry out this process. Though the inspired research also utilizes these three fire algorithms for performing image segmented masks.
+I have fetched the appropriate masks using the coincidence of occurrence of these fire algorithm results.
+The processed image patches along with these created masks will serve the role of an input for training our model.
+
+### Model 
+
+Model Architecture  (Refer main.py file)
+
+The U-Net architecture which I have implemented as a part of my research majorly comprises of two paths. The left side of the architecture represents the first path, which is the contraction path. Its also known as the encoder and is used to capture the context in the image. The encoder refers to a traditional stack of convolutional and max pooling layers. The right part of the architecture depicts the second path which is the symmetric expanding path. It’s also referredas the decoder. Decoder is utilized for enablement of precise localization using transposed convolutions [10]. So, this structure implies that it’s built on top of an end-to-end fully convolutional network (FCN). Our UNET implementation only comprises of Convolutional layers and doesn’t contains any sort of Dense layer which supports that the model can accept image of any size.
+
+Model Training (Refer train.py)
+
+• Model is compiled with Adam optimizer, and we use binary cross entropy loss function since there are only two classes (fire pixel and no fire pixel).
+
+• Note that for each pixel we get a value between 0 to 1.
+
+• 0 represents no fire and 1 represents fire.
+
+• We have maintained 0.5 as the threshold to decide whether to classify a pixel as 0 or 1.
+
+• our U-net model converts the active fire pixels to RGB (255,255,255) and the rest to RGB (0,0,0).
+
+• I have run model for 15000 epoch, and simultaneously calculated loss and accuracy. after 15000 epoch accuracy wasn't improving much. So, to avoid overfitting i stopped the training post 15000 epoch.
+
+• All the necessary scripts will be well documented as a part of thesis.
 
 
+Model Prediction
 
-Model 
+The ‘predict.py’ script consists of a function named detect in which we are inputting the image along with the model weights through the U-Net architecture so that it can calculate the confidences of each pixel across the image. If confidence > 0.5, then the respective pixel is Fire pixel. I have set this threshold by defining ‘out_threshold = 0.5’, as one of the arguments of this function. There is also a function 'out_files' for automating generation of output file names. Further, there is a function for plotting the resultant segmented mask image and a function for converting the pixels with confidence > 0.5 to RGB(255,255,255). 
+
+This script utilizes two scripts, 'main.py' for implementation of UNET architecture and 'model_train.py' for obtaining the model weights as a pth file, 'unet_semantic.pth'.
+
 
 
 
