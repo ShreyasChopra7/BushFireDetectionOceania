@@ -27,7 +27,7 @@ if not os.path.exists(OUT_DIR):
 
 # %%
 # ===============================================================================
-csv = "images202009.csv"
+csv = "images_1219_0320.csv"
 df = pd.read_csv(os.path.join(IN_DIR, csv), sep=';')
 
 # %%
