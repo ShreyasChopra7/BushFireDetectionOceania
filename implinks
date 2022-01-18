@@ -10,3 +10,292 @@ File/Directory	Purpose
 Table 1.2: A summary of the default Rails directory structure.
 
 SWTM-2088_Atlassian-Git-Cheatsheet (2)
+.................
+
+In the context of Rails web development, some specific examples of technical sophistication include making sure you’re using the right Ruby gem versions, running bundle install or bundle update, and restarting the local webserver if something doesn’t work.
+
+This standard directory and file structure (Figure 1.11) is one of the many advantages of Rails: it immediately gets you from zero to a functional (if minimal) application. Moreover, since the structure is common to all Rails apps, you can immediately get your bearings when looking at someone else’s code.
+
+Bundler provides a consistent environment for Ruby projects by tracking and installing the exact gems and versions that are needed. Bundler is an exit from dependency hell, and ensures that the gems you need are present in development, staging, and production. Starting work on a project is as simple as bundle install .
+
+
+When interacting with a Rails application, a browser sends a request, which is received by a webserver and passed on to a Rails controller, which is in charge of what to do next. In some cases, the controller will immediately render a view, which is a template that gets converted to HTML and sent back to the browser. More commonly for dynamic sites, the controller interacts with a model, which is a Ruby object that represents an element of the site (such as a user) and is in charge of communicating with the database. After invoking the model, the controller then renders the view and returns the complete web page to the browser as HTML.
+
+In synchronous operations tasks are performed one at a time and only when one is completed, the following is unblocked. In other words, you need to wait for a task to finish to move to the next one. In asynchronous operations, on the other hand, you can move to another task before the previous one finishes.
+
+…………………………………
+
+
+Commits : should these be squashed together
+Using Amend
+
+
+………………………………
+rails _6.1.4.1_ new hello_app
+
+Pbpaste
+
+
+Brew services start Postgres
+
+Curl 
+
+grep
+
+Adding Certs to your computer 
+
+
+Factorybot : for testing
+
+cd ~/.certs
+
+ open ~/.certs
+
+Ps aux
+
+.................
+
+Rails routes file (config/routes.rb)
+
+root 'controller_name#action_name'
+
+....................
+
+Time logging 
+
+Important hashtags
+
+Training meeting 
+
+………………………
+
+I have made the changes in models: which reflects the validations
+
+But I need to reflect those changes on the form as well, so maybe check out the controller
+
+Check all occurrences of company in controllers and views as well
+
+Spec
+
+……..
+
+Setting portin rubymine
+
+
+…….
+
+
+
+.....................
+
+/opt/homebrew/
+
+rbenv install
+
+
+
+
+Tools > command line launcher
+
+mine .
+
+
+
+Rebasing,  merge
+
+
+Update mac version 
+
+Fork app 
+
+
+Shims
+
+
+Gen stead if pip
+
+Bundle exec
+
+Spring
+(Manually start stop needed sometimes)
+
+irb  : env to python 
+
+Rails console 
+Rails c
+Command line ready 
+
+
+Access to databeses as well
+
+Rails db
+
+Rails is connected to the database
+
+use the Debugger in the ide RM 
+
+Database.yml
+
+nginx
+
+App and lib are entry points for the rail
+
+require
+ 
+Models views controllers
+
+Rails routs :
+Spitting out info on 
+
+Params 
+Behave like a hash
+
+Hash is a hashmap in ruby 
+
+Erb - all html file
+
+
+Ruby tag
+<%=  %>
+
+Blocks are standard ruby syntax code 
+
+Hashes are order dependent in Ruby
+
+Ccrf 
+
+Derived secret: new secret each time
+
+Form.width
+
+Creating forms with Rails
+
+Only first letter needs to be alphanumeric
+
+If you have a bang in the end , it will fail with exception
+
+.inspect
+
+Application controller
+
+Unless
+………………………
+Do 
+	block of code
+
+
+rescue_from do 
+……………………
+
+@ - instance variable
+
+locals.
+
+flash.   
+(Can also behave as a hash)
+
+arel
+
+.all.where 
+
+explain analyse 
+
+…………….
+Parse level features
+Taking argument as a hash
+
+………………
+
+
+Puts      .to_sql
+
+pluck : fetches data
+
+select 
+
+Scope : declarative descriptions of the data we want
+
+where
+
+Order is similar to orderby
+
+Find and find_by 
+
+get Params
+
+Strong params : important in rails5
+
+Validates
+
+:k is a symbol in Ruby 
+
+Name tags have to be in the end. 
+
+Key 
+
+Everything is positional 
+………………………
+1,2,{},d:
+
+1,2,c,d
+
+C{c, d}
+…………………
+
+Active model errors
+
+…..
+
+Factory data : generates test data
+
+Trait: writing different test scenarios
+
+Partial: just render the html itself 
+
+public_send : only send the public methods
+
+……
+
+Policy :is a gem 
+……………..
+
+Writing good tests
+- View level tests
+- Policy level tests
+
+TDD
+
+Controller test/ unit test
+Black box test
+End to end test 
+
+………………….
+
+let (:action) {}
+
+Lazy code: Doesn’t do anything  unless it comes in use 
+
+Calling subject be lazy 
+
+…………………………
+
+Download tuple
+
+Document on boarding 
+
+Morning stand up 
+
+Setting up new Mac pro
+……….
+
+
+Xero me : payroll 
+
+
+..............................
+
+
+
+
+
+
